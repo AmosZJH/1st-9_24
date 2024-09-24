@@ -185,6 +185,9 @@ class UartServoInfo:
 		# 如果没有指定目标角度， 就将其设置为当前角度
 		if self.target_angle is None:
 			self.target_angle = self.cur_angle
+		# 如果当前角度为None，无法判断是否停止
+		if self.cur_angle is None:
+			return False
 		# 角度误差判断
 		angle_error = self.target_angle - self.cur_angle
 		if abs(angle_error) <= self.SERVO_DEADBLOCK:
@@ -226,6 +229,7 @@ class UartServoInfo:
 
 	def update(self, angle):
 		'''更新当前舵机的角度'''
+
 		self.cur_angle = angle
 	
 	def __str__(self):
