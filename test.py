@@ -5,7 +5,7 @@ import serial
 from uservo import UartServoManager
 
 
-SERVO_PORT_NAME = "COM3"
+SERVO_PORT_NAME = "COM5"
 SERVO_BAUDRATE = 115200
 
 uart = serial.Serial(port=SERVO_PORT_NAME, baudrate=SERVO_BAUDRATE,\
@@ -23,16 +23,24 @@ while servo_id < 5:
     servo_id += 1
 
 
-uservo.set_servo_angle(1, 30, False, None, 20, 20, 20, 0, 100.0)
 
-uservo.set_servo_angle(2, 50, False, None, None, 20, 20, 0, 100.0)
+i=1
+while i <5:
+    set_angel=input(f"请输入第{i}号舵机角度:")
+    uservo.set_servo_angle(i, int(set_angel), False, None, None, 20, 20, 0, 100.0)
+    i+=1
 
-uservo.set_servo_angle(3, 20, False, None, None, 20, 20, 0, 100.0)
 
-uservo.set_servo_angle(4, 60, False, None, None, 20, 20, 0, 100.0)
+uservo.set_servo_angle(1, -66.5, False, None, 20, 20, 20, 0, 100.0)
+
+uservo.set_servo_angle(2, -81, False, None, None, 20, 20, 0, 100.0)
+
+uservo.set_servo_angle(3, 16, False, None, None, 20, 20, 0, 100.0)
+
+uservo.set_servo_angle(4, -10, False, None, None, 20, 20, 0, 100.0)
 
 
 
     
-   
+
 
