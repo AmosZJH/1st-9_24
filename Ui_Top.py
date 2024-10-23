@@ -46,15 +46,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     def setangle_2(self):
         angle_2 = self.textEdit_2.toPlainText()
-        uservo.set_servo_angle(2, int(angle_2), False, None, None, 20, 20, 0, 100.0)
+
+        if self.textEdit_6.toPlainText() == "":
+            uservo.set_servo_angle(2, int(angle_2), False, None, None, 20, 20, 0, 100.0)
+        else:
+            speed = self.textEdit_6.toPlainText()
+            uservo.set_servo_angle(2, int(angle_2), False, None, None, 20, 20, 0, float(speed))
+
+
 
     def setangle_3(self):
         angle_3 = self.textEdit_3.toPlainText()
-        uservo.set_servo_angle(3, int(angle_3), False, None, None, 20, 20, 0, 100.0)
+        if self.textEdit_7.toPlainText() == "":
+            uservo.set_servo_angle(3, int(angle_3), False, None, None, 20, 20, 0, 100.0)
+        else:
+            speed = self.textEdit_7.toPlainText()
+            uservo.set_servo_angle(3, int(angle_3), False, None, None, 20, 20, 0, float(speed))
 
     def setangle_4(self):
         angle_4 = self.textEdit_4.toPlainText()
-        uservo.set_servo_angle(4, int(angle_4), False, None, None, 20, 20, 0, 100.0)
+        if self.textEdit_8.toPlainText() == "":
+            uservo.set_servo_angle(4, int(angle_4), False, None, None, 20, 20, 0, 100.0)
+        else:
+            speed = self.textEdit_8.toPlainText()
+            uservo.set_servo_angle(4, int(angle_4), False, None, None, 20, 20, 0, float(speed))
     
     def resetangle(self):
         uservo.set_servo_angle(1, -66, False, None, None, 20, 20, 0, 100.0)
